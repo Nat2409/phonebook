@@ -18,6 +18,21 @@ export default class App extends Component {
     number: '',
   };
 
+  componentDidMount() {
+    console.log('componentDidMount');
+    const savedContacts = localStorage.getItem('contacts');
+    if (savedContacts) {
+      this.setState({ contacts: JSON.parse(savedContacts) });
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+    if (prevState.contacts !== this.state.contacts) {
+      console.log('we need update LS');
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   inputHandler = e => {
     this.setState(prevState => ({
       ...prevState,
@@ -44,6 +59,7 @@ export default class App extends Component {
             number: '',
           };
     });
+    console.log('added new contact in state', this.state.contacts);
   };
 
   searchContactHandler = e => {
@@ -65,6 +81,7 @@ export default class App extends Component {
   };
 
   render() {
+    console.log('added new contact in state-render', this.state.contacts);
     const visibleContacts = this.showContacts();
     return (
       <>
