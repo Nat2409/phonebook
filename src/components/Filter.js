@@ -5,7 +5,7 @@ export default function Filter({ searchContact }) {
   return (
     <CSSTransition
       in={true}
-      appear={true}
+      // appear={true}
       timeout={250}
       classNames="Filter"
       unmountOnExit

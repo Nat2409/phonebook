@@ -65,6 +65,21 @@ export default class App extends Component {
     };
 
     this.setState(prevState => {
+      const ifNameAlreadyExist = prevState.contacts.find(
+        cont => cont.name === contact.name
+      );
+      if (ifNameAlreadyExist) {
+        return alert({
+          text: `${contact.name} is already in the contacts list.`,
+        });
+      }
+
+      return {
+        ...prevState,
+        contacts: [...prevState.contacts, contact],
+        name: '',
+        number: '',
+      };
       return prevState.contacts.find(cont => cont.name === contact.name)
         ? alert({ text: `${contact.name} is already in the contacts list.` })
         : {
