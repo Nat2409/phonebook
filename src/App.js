@@ -5,20 +5,19 @@ import Section from './components/Section';
 import Contacts from './components/Contacts';
 import Filter from './components/Filter';
 import { CSSTransition } from 'react-transition-group';
-import './components/Alert.css';
-import './components/Tittle.css';
 
-import { alert, defaultModules } from '@pnotify/core';
+import './components/Tittle.css';
+import './components/Filter.css';
+
+import { alert } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
-import * as PNotifyMobile from '@pnotify/mobile';
-import '@pnotify/mobile/dist/PNotifyMobile.css';
+
 import '@pnotify/core/dist/Material.css';
 import { defaults } from '@pnotify/core';
-import 'material-design-icons/iconfont/material-icons.css';
+
 defaults.styling = 'material';
 defaults.type = 'error';
 defaults.delay = '3000';
-defaultModules.set(PNotifyMobile, {});
 
 export default class App extends Component {
   state = {
@@ -80,14 +79,14 @@ export default class App extends Component {
         name: '',
         number: '',
       };
-      return prevState.contacts.find(cont => cont.name === contact.name)
-        ? alert({ text: `${contact.name} is already in the contacts list.` })
-        : {
-            ...prevState,
-            contacts: [...prevState.contacts, contact],
-            name: '',
-            number: '',
-          };
+      // return prevState.contacts.find(cont => cont.name === contact.name)
+      //   ? alert({ text: `${contact.name} is already in the contacts list.` })
+      //   : {
+      //       ...prevState,
+      //       contacts: [...prevState.contacts, contact],
+      //       name: '',
+      //       number: '',
+      //     };
     });
     console.log('added new contact in state', this.state.contacts);
   };
@@ -118,7 +117,7 @@ export default class App extends Component {
         <CSSTransition
           in={true}
           appear={true}
-          timeout={250}
+          timeout={300}
           classNames="LogoTittle"
           unmountOnExit
         >
@@ -145,9 +144,17 @@ export default class App extends Component {
         <Section
           children={
             <>
-              {this.state.contacts.length > 1 && (
+              {/* {this.state.contacts.length > 1 && ( */}
+              <CSSTransition
+                in={this.state.contacts.length > 1}
+                // appear={true}
+                timeout={300}
+                classNames="Filter"
+                unmountOnExit
+              >
                 <Filter searchContact={this.searchContactHandler} />
-              )}
+              </CSSTransition>
+              {/* )} */}
               <Contacts
                 contacts={visibleContacts}
                 deleteContact={this.deleteContactHandler}

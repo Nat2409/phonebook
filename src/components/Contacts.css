@@ -33,13 +33,13 @@
 }
 .Contacts-item-enter {
   opacity: 0;
-  transform: translateX(-100);
+  transform: translateX(-100%);
 }
 .Contacts-item-enter-active {
   opacity: 1;
   transform: translateX(0);
 
-  translate: all 250ms linear;
+  transition: all 250ms linear;
 }
 .Contacts-item-exit {
   opacity: 1;
@@ -48,5 +48,5 @@
 .Contacts-item-exit-active {
   opacity: 0;
   transform: translateX(-100%);
-  translate: all 250ms linear;
+  transition: all 250ms linear;
 }

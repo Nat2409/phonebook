@@ -18,5 +18,5 @@
 }
 .LogoTittle-appear-active {
   transform: translateX(0);
-  transition: transform 250ms linear;
+  transition: transform 300ms linear;
 }
