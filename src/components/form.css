@@ -1,0 +1,19 @@
+.form {
+  /* margin: 0 auto; */
+  width: 430px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.form-input {
+  padding: 10px;
+  width: 400px;
+  margin-bottom: 10px;
+}
+.form-input--bg-color {
+  background-color: rgb(40, 52, 158);
+  color: #fff;
+}

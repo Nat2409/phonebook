@@ -1,4 +1,5 @@
 import React from 'react';
+import './form.css';
 
 export default function Form({
   inputChange,
@@ -7,10 +8,11 @@ export default function Form({
   inputNumberValue,
 }) {
   return (
-    <form>
+    <form className="form">
       <label>
-        Name
+        Name <br />
         <input
+          className="form-input"
           onChange={inputChange}
           type="text"
           name="name"
@@ -22,7 +24,9 @@ export default function Form({
       </label>
       <label>
         Number
+        <br />
         <input
+          className="form-input"
           onChange={inputChange}
           type="tel"
           name="number"
@@ -32,7 +36,11 @@ export default function Form({
           required
         />
       </label>
-      <button type="submit" onClick={addContact}>
+      <button
+        className="form-input form-input--bg-color"
+        type="submit"
+        onClick={addContact}
+      >
         Add contact
       </button>
     </form>

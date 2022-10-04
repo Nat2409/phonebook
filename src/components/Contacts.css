@@ -1,0 +1,52 @@
+.Contacts {
+  width: 430px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.Contacts-item {
+  padding: 10px;
+  width: 430px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.Contacts-name {
+  width: 150px;
+  margin-right: 10px;
+}
+.Contacts-button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-image: url(https://st.depositphotos.com/1734074/3308/v/600/depositphotos_33083835-stock-illustration-vector-close-icon.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid transparent;
+}
+.Contacts-button:hover {
+  cursor: pointer;
+  border: 1px solid red;
+}
+.Contacts-item-enter {
+  opacity: 0;
+  transform: translateX(-100);
+}
+.Contacts-item-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+
+  translate: all 250ms linear;
+}
+.Contacts-item-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.Contacts-item-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  translate: all 250ms linear;
+}

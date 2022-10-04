@@ -1,0 +1,7 @@
+.Alert-appear {
+  transform: translateY(-100%);
+}
+.Alert-appear-active {
+  transform: translateY(0);
+  transition: transform 250ms linear;
+}

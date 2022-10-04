@@ -4,6 +4,21 @@ import Form from './components/Form';
 import Section from './components/Section';
 import Contacts from './components/Contacts';
 import Filter from './components/Filter';
+import { CSSTransition } from 'react-transition-group';
+import './components/Alert.css';
+import './components/Tittle.css';
+
+import { alert, defaultModules } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import * as PNotifyMobile from '@pnotify/mobile';
+import '@pnotify/mobile/dist/PNotifyMobile.css';
+import '@pnotify/core/dist/Material.css';
+import { defaults } from '@pnotify/core';
+import 'material-design-icons/iconfont/material-icons.css';
+defaults.styling = 'material';
+defaults.type = 'error';
+defaults.delay = '3000';
+defaultModules.set(PNotifyMobile, {});
 
 export default class App extends Component {
   state = {
@@ -51,7 +66,7 @@ export default class App extends Component {
 
     this.setState(prevState => {
       return prevState.contacts.find(cont => cont.name === contact.name)
-        ? alert(`${contact.name} is already in the contacts list.`)
+        ? alert({ text: `${contact.name} is already in the contacts list.` })
         : {
             ...prevState,
             contacts: [...prevState.contacts, contact],
@@ -85,19 +100,34 @@ export default class App extends Component {
     const visibleContacts = this.showContacts();
     return (
       <>
+        <CSSTransition
+          in={true}
+          appear={true}
+          timeout={250}
+          classNames="LogoTittle"
+          unmountOnExit
+        >
+          <h2 className="logoTittle">Phonebook</h2>
+        </CSSTransition>
         <Section
-          title="Phonebook"
           children={
+            // <CSSTransition
+            //   in={true}
+            //   appear={true}
+            //   timeout={250}
+            //   classNames="Alert"
+            //   unmountOnExit
+            // >
             <Form
               inputChange={this.inputHandler}
               addContact={this.submitHandler}
               inputNameValue={this.state.name}
               inputNumberValue={this.state.number}
             />
+            // </CSSTransition>
           }
         />
         <Section
-          title="Contacts"
           children={
             <>
               {this.state.contacts.length > 1 && (

@@ -1,0 +1,22 @@
+/* .LogoTittle-enter {
+  transform: translateX(100%);
+}
+.LogoTittle-enter-active {
+  transform: translateX(0);
+  transition: transform 250ms linear;
+} */
+
+.logoTittle {
+  /* text-align: center; */
+  color: rgb(40, 52, 158);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+.LogoTittle-appear {
+  transform: translateX(-100%);
+}
+.LogoTittle-appear-active {
+  transform: translateX(0);
+  transition: transform 250ms linear;
+}
